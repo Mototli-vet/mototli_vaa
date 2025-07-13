@@ -35,7 +35,7 @@
 
         input[type="text"],
         input[type="date"] {
-            width: calc(100% - 22px);
+            width: 100%;
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ddd;
