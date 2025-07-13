@@ -8,8 +8,8 @@
 		name="viewport"
 		content="width=device-width, initial-scale=1.0" />
 	<title>MOTOTLI</title>
-	<link href="<?= base_url('css/bootstrap.min.css') ?>" rel="stylesheet" />
-	<link rel="stylesheet" href="<?= base_url('css/style.css') ?>" />
+	<link href="<?= base_url('public/css/bootstrap.min.css') ?>" rel="stylesheet" />
+	<link rel="stylesheet" href="<?= base_url('public/css/style.css') ?>" />
 	<!-- Font Awesome para los iconos. Nota: La versión 6.7.2 no existe, se corrigió a la 6.5.2 que es la más reciente estable. -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
