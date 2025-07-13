@@ -1,0 +1,221 @@
+ERROR - 2025-07-13 01:28:29 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(184): mysqli->real_connect()
+#1 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mototli/public_html/vendor/codeigniter4/framework/system/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mototli/public_html/vendor/codeigniter4/framework/system/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+#6 /home/mototli/public_html/app/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+#7 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+#8 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+#9 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mototli/public_html/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mototli/public_html/vendor/codeigniter4/framework/system/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mototli/public_html/vendor/codeigniter4/framework/system/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+#5 /home/mototli/public_html/app/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+#6 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+#7 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+#8 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/mototli/public_html/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-07-13 01:28:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+ 5 APPPATH/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-07-13 01:28:36 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(184): mysqli->real_connect()
+#1 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mototli/public_html/vendor/codeigniter4/framework/system/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mototli/public_html/vendor/codeigniter4/framework/system/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+#6 /home/mototli/public_html/app/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+#7 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+#8 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+#9 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mototli/public_html/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mototli/public_html/vendor/codeigniter4/framework/system/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mototli/public_html/vendor/codeigniter4/framework/system/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+#5 /home/mototli/public_html/app/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+#6 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+#7 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+#8 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/mototli/public_html/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-07-13 01:28:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+ 5 APPPATH/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-07-13 01:47:25 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(184): mysqli->real_connect()
+#1 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mototli/public_html/vendor/codeigniter4/framework/system/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mototli/public_html/vendor/codeigniter4/framework/system/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+#6 /home/mototli/public_html/app/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+#7 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+#8 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+#9 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mototli/public_html/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mototli/public_html/vendor/codeigniter4/framework/system/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mototli/public_html/vendor/codeigniter4/framework/system/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+#5 /home/mototli/public_html/app/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+#6 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+#7 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+#8 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/mototli/public_html/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-07-13 01:47:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+ 5 APPPATH/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-07-13 01:58:48 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'mototli_veterinaria'@'localhost' to database 'mototli_veterinaria' in /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(184): mysqli->real_connect()
+#1 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mototli/public_html/vendor/codeigniter4/framework/system/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mototli/public_html/vendor/codeigniter4/framework/system/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+#6 /home/mototli/public_html/app/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+#7 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+#8 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+#9 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mototli/public_html/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' to database '****' in /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#3 /home/mototli/public_html/vendor/codeigniter4/framework/system/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/mototli/public_html/vendor/codeigniter4/framework/system/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+#5 /home/mototli/public_html/app/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+#6 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+#7 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+#8 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/mototli/public_html/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-07-13 01:58:48 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' to database '****'
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+ 5 APPPATH/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+ 7 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-07-13 02:05:31 --> mysqli_sql_exception: Table 'mototli_veterinaria.VE_MASCOTAS' doesn't exist in /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(306): mysqli->query()
+#1 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/mototli/public_html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 /home/mototli/public_html/vendor/codeigniter4/framework/system/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/mototli/public_html/vendor/codeigniter4/framework/system/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+#6 /home/mototli/public_html/app/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+#7 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+#8 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+#9 /home/mototli/public_html/vendor/codeigniter4/framework/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/mototli/public_html/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-07-13 02:05:31 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'mototli_veterinaria.VE_MASCOTAS' doesn't exist
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+ 4 APPPATH/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+ 6 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 8 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-07-13 02:05:31 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'mototli_veterinaria.VE_MASCOTAS' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 311.
+ 1 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+ 6 APPPATH/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+ 8 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-07-13 02:05:31 --> [Caused by] mysqli_sql_exception: Table 'mototli_veterinaria.VE_MASCOTAS' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 306.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(306): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(641): CodeIgniter\Model->doFindAll()
+ 7 APPPATH/Controllers/Mascotas.php(14): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH/CodeIgniter.php(943): App\Controllers\Mascotas->index()
+ 9 SYSTEMPATH/CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-07-13 02:19:12 --> ErrorException: Declaration of CodeIgniter\I18n\TimeTrait::createFromTimestamp(int $timestamp, $timezone = null, ?string $locale = null) must be compatible with DateTimeImmutable::createFromTimestamp(int|float $timestamp): CodeIgniter\Autoloader\Autoloader
+in SYSTEMPATH/I18n/TimeTrait.php on line 266.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-07-13 02:27:36 --> ErrorException: Declaration of CodeIgniter\I18n\TimeTrait::createFromTimestamp(int $timestamp, $timezone = null, ?string $locale = null) must be compatible with DateTimeImmutable::createFromTimestamp(int|float $timestamp): CodeIgniter\Autoloader\Autoloader
+in SYSTEMPATH/I18n/TimeTrait.php on line 266.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-07-13 02:27:45 --> ErrorException: Declaration of CodeIgniter\I18n\TimeTrait::createFromTimestamp(int $timestamp, $timezone = null, ?string $locale = null) must be compatible with DateTimeImmutable::createFromTimestamp(int|float $timestamp): CodeIgniter\Autoloader\Autoloader
+in SYSTEMPATH/I18n/TimeTrait.php on line 266.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-07-13 02:29:07 --> ErrorException: Declaration of CodeIgniter\I18n\TimeTrait::createFromTimestamp(int $timestamp, $timezone = null, ?string $locale = null) must be compatible with DateTimeImmutable::createFromTimestamp(int|float $timestamp): CodeIgniter\Autoloader\Autoloader
+in SYSTEMPATH/I18n/TimeTrait.php on line 266.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

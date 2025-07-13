@@ -1,0 +1,14 @@
+# /public_html/.htaccess
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Bloquear acceso directo a carpetas y archivos sensibles
+    RewriteRule ^(app|system|writable|tests) - [F,L]
+    RewriteRule ^(composer\.json|composer\.lock|env|\.env|spark) - [F,L]
+
+    # 2. Redirigir todas las demás peticiones a la carpeta /public
+    #    (siempre que la petición no sea ya para la carpeta public)
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

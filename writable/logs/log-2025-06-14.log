@@ -1,0 +1,19 @@
+CRITICAL - 2025-06-14 23:19:44 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "mascotas/index.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('mascotas/index.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('mascotas/index', [], true)
+ 3 APPPATH\Controllers\Mascotas.php(15): view('mascotas/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Mascotas->index()
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mascotas))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-06-14 23:23:10 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "mascotas/MascotasView.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('mascotas/MascotasView.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('mascotas/MascotasView', [], true)
+ 3 APPPATH\Controllers\Mascotas.php(15): view('mascotas/MascotasView', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\Mascotas->index()
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Mascotas))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+INFO - 2025-06-14 23:23:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
