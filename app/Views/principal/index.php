@@ -48,7 +48,7 @@
 				<i class="fa-solid fa-bars"></i>
 				<ul class="menu">
 					<li><a href="<?= site_url('/') ?>">Inicio</a></li>
-					<li><a href="<?= site_url('mascotas/informacion') ?>">Mascotas</a></li>
+					<li><a href="<?= site_url('public/mascotas/informacion') ?>">Mascotas</a></li>
 					<?php if (session()->get('isLoggedIn')): ?>
 						<!-- Este enlace ahora apunta al formuario para crear una nueva mascota y solo se muestra si el usuario está logueado -->
 						<li><a href="<?= site_url('mascotas/nuevo') ?>">Registrar Mascota</a></li>
