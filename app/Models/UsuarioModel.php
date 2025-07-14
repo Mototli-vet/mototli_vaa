@@ -26,12 +26,13 @@ class UsuarioModel extends Model
 
     protected function hashPassword(array $data)
     {
-        if (! isset($data['data']['password'])) {
+        // Comprobar si se está enviando una contraseña en el campo 'PASSWORD' (mayúsculas)
+        if (! isset($data['data']['PASSWORD'])) {
             return $data;
         }
 
-        $data['data']['password_hash'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
-        unset($data['data']['password']);
+        // Hashear la contraseña y reemplazar el valor original en el mismo campo 'PASSWORD'
+        $data['data']['PASSWORD'] = password_hash($data['data']['PASSWORD'], PASSWORD_DEFAULT);
 
         return $data;
     }
