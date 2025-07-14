@@ -22,22 +22,22 @@ class Login extends BaseController
         $model = new UsuarioModel();
         $request = \Config\Services::request();
 
-        $email = $request->getPost('email');
-        $password = $request->getPost('password');
+        $email = $request->getPost('USUARIO');
+        $password = $request->getPost('PASSWORD');
 
         // Buscar usuario por email
-        $user = $model->where('email', $email)->first();
+        $user = $model->where('USUARIO', $email)->first();
 
         if ($user && password_verify($password, $user['password_hash'])) {
             // Contraseña correcta, iniciar sesión
             $ses_data = [
-                'user_id'        => $user['id'],
-                'user_name'      => $user['nombre_usuario'],
-                'user_email'     => $user['email'],
+                'user_id'        => $user['ID_USUARIO'],
+                'user_name'      => $user['USUARIO'],
+                'user_email'     => $user['USUARIO'],
                 'isLoggedIn'     => true,
             ];
             $session->set($ses_data);
-            return redirect()->to('/')->with('mensaje', 'Bienvenido de nuevo, ' . $user['nombre_usuario']);
+            return redirect()->to('/')->with('mensaje', 'Bienvenido de nuevo, ' . $user['USUARIO']);
         }
 
         // Si el usuario no existe o la contraseña es incorrecta
