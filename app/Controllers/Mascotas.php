@@ -18,7 +18,7 @@ class Mascotas extends BaseController
     public function informacion()
     {
         // Muestra la página de información general sobre mascotas
-        return view('infoMascotas/infomascotas');
+        return view('infoMascotas/infoMascotas');
     }
 
     public function nuevo()
