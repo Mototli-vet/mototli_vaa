@@ -25,24 +25,6 @@ class Login extends BaseController
         $email = $request->getPost('email');
         $password = $request->getPost('password');
 
-        // --- INICIO DE LA DEPURACIÓN ---
-
-        // 1. Imprimir la contraseña que recibes del formulario
-        echo "La contraseña que se envió es: ";
-        var_dump($password);
-
-        // Buscar usuario por email
-        $user = $model->where('USUARIO', $email)->first();
-
-        // 2. Imprimir los datos del usuario que se encontraron en la base de datos
-        echo "Los datos del usuario encontrado son: ";
-        var_dump($user);
-
-        // 3. Detener el script para ver los resultados
-        die('Fin de la depuración.');
-
-        // --- FIN DE LA DEPURACIÓN ---
-
         // Buscar usuario por email
         $user = $model->where('USUARIO', $email)->first();
 
