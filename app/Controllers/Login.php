@@ -22,8 +22,8 @@ class Login extends BaseController
         $model = new UsuarioModel();
         $request = \Config\Services::request();
 
-        $email = $request->getPost('USUARIO');
-        $password = $request->getPost('PASSWORD');
+        $email = $request->getPost('email');
+        $password = $request->getPost('password');
 
         // --- INICIO DE LA DEPURACIÓN ---
 
