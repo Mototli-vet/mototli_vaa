@@ -7,17 +7,14 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Mascotas::index');
 
-
-// Rutas para Mascotas.
-// Usamos el filtro 'auth' para proteger las rutas que requieren inicio de sesión.
-// Asegúrate de tener configurado el filtro 'auth' en app/Config/Filters.php
-$routes->get('mascotas', 'Mascotas::dashboard', ['filter' => 'auth']); // Dashboard de mascotas
-$routes->get('mascotas/nuevo', 'Mascotas::nuevo', ['filter' => 'auth']); // Formulario para nueva mascota
-$routes->post('mascotas/guardar', 'Mascotas::guardar', ['filter' => 'auth']); // Guardar la nueva mascota
-
-// Rutas públicas que no requieren login
-$routes->get('mascotas/informacion', 'Mascotas::informacion'); // Página de información general
-$routes->get('mascotas/ver/(:any)', 'Mascotas::ver/$1'); // Vista pública del QR
+// Rutas para Perros
+$routes->group('mascotas', function ($routes) {
+    $routes->get('/', 'Mascotas::index'); // Listar perros
+    $routes->get('informacion', 'Mascotas::informacion');
+    $routes->get('nuevo', 'Mascotas::nuevo'); // Formulario para nuevo perro
+    $routes->post('guardar', 'Mascotas::guardar'); // Procesar el formulario de guardado
+    $routes->get('ver/(:segment)', 'Mascotas::ver/$1'); // Ver perro y QR por qr_data
+});
 
 // Rutas para Autenticación
 $routes->get('login', 'Login::index');
