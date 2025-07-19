@@ -19,12 +19,4 @@ class UsuarioModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-
-    protected function passwordVery(array $data)
-    {
-        // Comprobar si se está enviando una contraseña en el campo 'PASSWORD' (mayúsculas)
-        if (! isset($data['data']['password'])) {
-            return $data;
-        }
-    }
 }

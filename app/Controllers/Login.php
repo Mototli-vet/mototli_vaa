@@ -10,7 +10,7 @@ class Login extends BaseController
     {
         // Si el usuario ya está logueado, redirigir a la página principal
         if (session()->get('isLoggedIn')) {
-            return redirect()->to('/');
+            return redirect()->to('/dashboard');
         }
         helper(['form']);
         return view('login/login_view');
@@ -28,9 +28,8 @@ class Login extends BaseController
         // Buscar usuario por email
         $user = $model->where('USUARIO', $email)->first();
 
-        print_r(password_verify($password, $user['PASSWORD']));
-
-        if ($user && password_verify($password, $user['PASSWORD'])) {
+        // ADVERTENCIA: Comparar contraseñas en texto plano es muy inseguro.
+        if ($user && $password === $user['PASSWORD']) {
             // Contraseña correcta, iniciar sesión
             $ses_data = [
                 'user_id'        => $user['ID_USUARIO'],
@@ -39,7 +38,7 @@ class Login extends BaseController
                 'isLoggedIn'     => true,
             ];
             $session->set($ses_data);
-            return redirect()->to('/')->with('mensaje', 'Bienvenido de nuevo, ' . $user['USUARIO']);
+            return redirect()->to('/dashboard')->with('mensaje', 'Bienvenido de nuevo, ' . $user['USUARIO']);
         }
 
         // Si el usuario no existe o la contraseña es incorrecta
