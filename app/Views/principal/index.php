@@ -51,9 +51,8 @@
 					<li><a href="<?= site_url('mascotas/informacion') ?>">Mascotas</a></li>
 					<?php if (session()->get('isLoggedIn')): ?>
 						<!-- Este enlace ahora apunta al formuario para crear una nueva mascota y solo se muestra si el usuario está logueado -->
-						<li><a href="<?= site_url('mascotas/nuevo') ?>">Registrar Mascota</a></li>
+						<li><a href="<?= site_url('mascotas/nuevo') ?>">QR</a></li>
 					<?php endif; ?>
-					<li><a href="#">QR</a></li>
 					<li><a href="#">Servicios</a></li>
 					<li><a href="#">Blog</a></li>
 				</ul>
