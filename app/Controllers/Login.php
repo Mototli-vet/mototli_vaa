@@ -38,7 +38,7 @@ class Login extends BaseController
                 'isLoggedIn'     => true,
             ];
             $session->set($ses_data);
-            return redirect()->to('/dashboard')->with('mensaje', 'Bienvenido de nuevo, ' . $user['USUARIO']);
+            return redirect()->to('/')->with('mensaje', 'Bienvenido de nuevo, ' . $user['USUARIO']);
         }
 
         // Si el usuario no existe o la contraseña es incorrecta
