@@ -28,6 +28,9 @@ class Login extends BaseController
         // Buscar usuario por email
         $user = $model->where('USUARIO', $email)->first();
 
+        echo json_encode(password_verify($password, $user['PASSWORD']));
+
+
         if ($user && password_verify($password, $user['PASSWORD'])) {
             // Contraseña correcta, iniciar sesión
             $ses_data = [

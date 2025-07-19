@@ -20,11 +20,7 @@ class UsuarioModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Callbacks
-    protected $beforeInsert = ['hashPassword'];
-    protected $beforeUpdate = ['hashPassword'];
-
-    protected function hashPassword(array $data)
+    protected function passwordVery(array $data)
     {
         // Comprobar si se está enviando una contraseña en el campo 'PASSWORD' (mayúsculas)
         if (! isset($data['data']['password'])) {
