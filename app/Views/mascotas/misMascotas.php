@@ -12,7 +12,6 @@
 
 <body>
     <!-- Sería ideal tener un header común para incluirlo aquí -->
-    <!-- Por ejemplo: -->
 
     <div class="container mt-5 mb-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
