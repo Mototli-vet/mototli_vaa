@@ -44,7 +44,7 @@ class Mascotas extends BaseController
     public function nuevo()
     {
         // Muestra el formulario para agregar una nueva mascota
-        return view('mascotas/mascotasview'); // This view name seems fine
+        return view('mascotas/mascotasView'); // This view name seems fine
     }
 
     public function guardar()
