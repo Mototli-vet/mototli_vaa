@@ -87,7 +87,7 @@
 
 <body>
     <div class="container">
-        <h1>Registrar Nuevo Perro</h1>
+        <h1>Registrar Nueva Mascota</h1>
 
         <?php if (session()->get('errores')): ?>
             <div class="error-messages">
@@ -103,7 +103,7 @@
         <form action="<?= base_url('mascotas/guardar') ?>" method="post">
             <?= csrf_field() ?>
 
-            <label for="nombre">Nombre del Perro:</label>
+            <label for="nombre">Nombre de la Mascota:</label>
             <input type="text" name="nombre" id="nombre" value="<?= old('nombre') ?>" required>
 
             <label for="raza">Raza:</label>
@@ -118,7 +118,7 @@
             <label for="contacto_propietario">Contacto del Propietario (Tel/Email):</label>
             <input type="text" name="contacto_propietario" id="contacto_propietario" value="<?= old('contacto_propietario') ?>">
 
-            <input type="submit" value="Registrar Perro">
+            <input type="submit" value="Registrar Mascota">
         </form>
         <p style="text-align: center; margin-top: 20px;"><a href="<?= base_url('mascotas') ?>">Volver al listado</a></p>
     </div>

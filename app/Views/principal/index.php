@@ -51,7 +51,7 @@
 					<li><a href="<?= site_url('mascotas/informacion') ?>">Mascotas</a></li>
 					<?php if (session()->get('isLoggedIn')): ?>
 						<!-- Este enlace ahora apunta al dashboard de mascotas y solo se muestra si el usuario está logueado -->
-						<li><a href="<?= site_url('mascotas') ?>">Mis QR</a></li>
+						<li><a href="<?= site_url('mascotas/misMascotas') ?>">Mis QR</a></li>
 					<?php endif; ?>
 					<li><a href="#">Servicios</a></li>
 					<li><a href="#">Blog</a></li>

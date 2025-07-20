@@ -21,6 +21,26 @@ class Mascotas extends BaseController
         return view('infoMascotas/infoMascotas');
     }
 
+    public function misMascotas()
+    {
+        // Es una buena práctica verificar si el usuario ha iniciado sesión
+        // antes de mostrarle una página de "Mis Mascotas".
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login');
+        }
+
+        $mascotasModel = new MascotasModel();
+
+        // IDEALMENTE: Deberías filtrar las mascotas por el ID del usuario que ha iniciado sesión.
+        // Esto requeriría añadir una columna `ID_USUARIO` a tu tabla `mascotas`.
+        // Ejemplo:
+        // $userId = session()->get('user_id');
+        // $data['mascotas'] = $mascotasModel->where('ID_USUARIO', $userId)->orderBy('ID_MASCOTA', 'DESC')->findAll();
+        $data['mascotas'] = $mascotasModel->orderBy('ID_MASCOTA', 'DESC')->findAll();
+
+        return view('mascotas/misMascotas', $data);
+    }
+
     public function nuevo()
     {
         // Muestra el formulario para agregar una nueva mascota
