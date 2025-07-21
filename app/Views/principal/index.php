@@ -52,6 +52,10 @@
 					<?php if (session()->get('isLoggedIn')): ?>
 						<!-- Este enlace ahora apunta al dashboard de mascotas y solo se muestra si el usuario está logueado -->
 						<li><a href="<?= site_url('mascotas/misMascotas') ?>">Mis QR</a></li>
+						<!-- Enlace al Dashboard solo para administradores (rol=1) -->
+						<?php if (session()->get('user_rol') == 1): ?>
+							<li><a href="<?= site_url('dashboard') ?>">Dashboard</a></li>
+						<?php endif; ?>
 					<?php endif; ?>
 					<li><a href="#">Servicios</a></li>
 					<li><a href="#">Blog</a></li>
@@ -69,6 +73,7 @@
 	</header>
 
 	<section class="banner">
+
 		<div class="content-banner">
 			<p>MOTOTLI</p>
 			<h2>¿QUIERES SABER MAS DE NOSOTROS? <br />TENCOLOGIA QR!</h2>
