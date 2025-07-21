@@ -43,8 +43,19 @@ class Mascotas extends BaseController
 
     public function nuevo()
     {
+        // Es una buena práctica verificar si el usuario ha iniciado sesión
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login')->with('msg', 'Debes iniciar sesión para registrar una mascota.');
+        }
+
         // Muestra el formulario para agregar una nueva mascota
-        return view('mascotas/MascotasView'); // This view name seems fine
+        // Pasamos los datos del usuario de la sesión a la vista
+        $data = [
+            'nombre_propietario' => session()->get('user_full_name'),
+            'contacto_propietario' => session()->get('user_name'), // user_name es el email
+        ];
+
+        return view('mascotas/MascotasView', $data);
     }
 
     public function guardar()

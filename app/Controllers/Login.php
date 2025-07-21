@@ -32,13 +32,14 @@ class Login extends BaseController
         if ($user && $password === $user['PASSWORD']) {
             // Contraseña correcta, iniciar sesión
             $ses_data = [
-                'user_id'        => $user['ID_USUARIO'],
-                'user_name'      => $user['USUARIO'],
-                'user_email'     => $user['USUARIO'],
-                'isLoggedIn'     => true,
+                'user_id'         => $user['ID_USUARIO'],
+                'user_name'       => $user['USUARIO'], // Este es el email
+                'user_full_name'  => $user['Nombre'], // Nombre completo del usuario
+                'isLoggedIn'      => true,
             ];
             $session->set($ses_data);
-            return redirect()->to('/')->with('mensaje', 'Bienvenido de nuevo, ' . $user['USUARIO']);
+            // Usamos el nombre en el mensaje de bienvenida
+            return redirect()->to('/')->with('mensaje', 'Bienvenido de nuevo, ' . $user['NOMBRE']);
         }
 
         // Si el usuario no existe o la contraseña es incorrecta

@@ -57,7 +57,10 @@
 					<li><a href="#">Blog</a></li>
 				</ul>
 				<?php if (session()->get('isLoggedIn')): ?>
-					<a href="<?= site_url('logout') ?>" class="btn btn-danger fw-bold">Cerrar Sesión</a>
+					<div class="d-flex align-items-center">
+						<span class="text-white me-3">Hola, <?= esc(session()->get('user_full_name')) ?></span>
+						<a href="<?= site_url('logout') ?>" class="btn btn-danger fw-bold">Cerrar Sesión</a>
+					</div>
 				<?php else: ?>
 					<a href="<?= site_url('login') ?>" class="btn btn-warning fw-bold">Iniciar Sesión</a>
 				<?php endif; ?>

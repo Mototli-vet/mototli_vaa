@@ -119,10 +119,10 @@
             <input type="text" name="descripcion" id="descripcion" value="<?= old('descripcion') ?>">
 
             <label for="nombre_propietario">Nombre del Propietario:</label>
-            <input type="text" name="nombre_propietario" id="nombre_propietario" value="<?= old('nombre_propietario') ?>">
+            <input type="text" name="nombre_propietario" id="nombre_propietario" value="<?= old('nombre_propietario', $nombre_propietario ?? '') ?>" required>
 
             <label for="contacto_propietario">Contacto del Propietario (Tel/Email):</label>
-            <input type="text" name="contacto_propietario" id="contacto_propietario" value="<?= old('contacto_propietario') ?>">
+            <input type="text" name="contacto_propietario" id="contacto_propietario" value="<?= old('contacto_propietario', $contacto_propietario ?? '') ?>" required>
 
             <input type="submit" value="Registrar Mascota">
         </form>
