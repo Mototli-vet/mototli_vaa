@@ -41,7 +41,9 @@
                                     <strong>Propietario:</strong> <?= esc($mascota['NOMBRE']) ?><br>
                                     <strong>Contacto:</strong> <?= esc($mascota['contacto_propietario']) ?>
                                 </p>
-                                <a href="<?= site_url('mascotas/ver/' . $mascota['QR_CODE_PATH']) ?>" class="btn btn-info btn-sm">Ver QR e Info</a>
+                                <?php if (!empty($mascota['QR_CODE_PATH'])): ?>
+                                    <a href="<?= site_url('mascotas/ver/' . esc($mascota['QR_CODE_PATH'], 'url')) ?>" class="btn btn-info btn-sm">Ver QR e Info</a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

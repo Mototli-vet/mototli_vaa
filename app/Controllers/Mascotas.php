@@ -98,10 +98,13 @@ class Mascotas extends BaseController
 
         // Generar el código QR
         $qrUrl = base_url('mascotas/ver/' . $qr_data); // URL que contendrá el QR
-        $qrOptions = new QROptions(['outputType' => QRCode::OUTPUT_IMAGE_PNG, 'eccLevel' => QRCode::ECC_L]);
+        $qrOptions = new QROptions([
+            'outputType' => QRCode::OUTPUT_DATA_URI, // Genera un Data URI (base64) listo para usar en <img>
+            'eccLevel'   => QRCode::ECC_L,
+        ]);
         $qrcode = new QRCode($qrOptions);
-        $data['qrCodeImagen'] = $qrcode->render($qrUrl); // Genera la imagen QR como string base64 (data URI)
+        $data['qrCodeImagen'] = $qrcode->render($qrUrl); // Genera la imagen QR como un string Data URI
 
-        return view('mascotas/ver_mascota', $data); // Suggest renaming view file for consistency
+        return view('mascotas/ver_mascota', $data);
     }
 }
