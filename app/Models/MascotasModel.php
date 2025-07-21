@@ -23,9 +23,7 @@ class MascotasModel extends Model
         'QR_CODE_PATH', // Asegúrate de que esta columna exista en tu tabla VE_MASCOTAS
         'NOMBRE',
         'contacto_propietario',
-        // 'COLOR', // Descomenta si tienes estos campos y los manejas en el formulario/controlador
-        // 'DESCRIPCION',
-        // 'ID_DUENO',
+        'ID_USUARIO', // Campo para relacionar la mascota con el usuario
     ];
 
     // Dates

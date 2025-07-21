@@ -46,12 +46,9 @@ class Mascotas extends BaseController
 
         $mascotasModel = new MascotasModel();
 
-        // IDEALMENTE: Deberías filtrar las mascotas por el ID del usuario que ha iniciado sesión.
-        // Esto requeriría añadir una columna `ID_USUARIO` a tu tabla `mascotas`.
-        // Ejemplo:
-        // $userId = session()->get('user_id');
-        // $data['mascotas'] = $mascotasModel->where('ID_USUARIO', $userId)->orderBy('ID_MASCOTA', 'DESC')->findAll();
-        $data['mascotas'] = $mascotasModel->orderBy('ID_MASCOTA', 'DESC')->findAll();
+        // Filtramos las mascotas para mostrar solo las del usuario que ha iniciado sesión.
+        $userId = session()->get('user_id');
+        $data['mascotas'] = $mascotasModel->where('ID_USUARIO', $userId)->orderBy('ID_MASCOTA', 'DESC')->findAll();
 
         return view('mascotas/misMascotas', $data);
     }
@@ -88,6 +85,7 @@ class Mascotas extends BaseController
             'DESCRIPCION' => $request->getPost('descripcion'),
             'NOMBRE' => $request->getPost('nombre_propietario'),
             'contacto_propietario' => $request->getPost('contacto_propietario'),
+            'ID_USUARIO' => session()->get('user_id'), // Añadimos el ID del usuario logueado
         ];
 
         // Generar un identificador único para el QR.
