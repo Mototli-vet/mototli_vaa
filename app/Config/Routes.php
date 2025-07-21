@@ -17,6 +17,7 @@ $routes->group('mascotas', function ($routes) {
     $routes->get('misMascotas', 'Mascotas::misMascotas'); // Ver mis mascotas y QRs
     $routes->get('nuevo', 'Mascotas::nuevo'); // Formulario para nuevo perro
     $routes->post('guardar', 'Mascotas::guardar'); // Procesar el formulario de guardado
+    $routes->get('eliminar/(:num)', 'Mascotas::eliminar/$1'); // Ruta para eliminar mascota
     $routes->get('ver/(:segment)', 'Mascotas::ver/$1'); // Ver perro y QR por qr_data
 });
 

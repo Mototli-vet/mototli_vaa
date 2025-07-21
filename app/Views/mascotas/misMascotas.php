@@ -49,6 +49,11 @@
                                 <?php if (!empty($mascota['QR_CODE_PATH'])): ?>
                                     <a href="<?= site_url('mascotas/ver/' . esc($mascota['QR_CODE_PATH'], 'url')) ?>" class="btn btn-info btn-sm">Ver QR e Info</a>
                                 <?php endif; ?>
+
+                                <?php if (session()->get('user_rol') == 1): ?>
+                                    <!-- Botón de eliminar solo para administradores -->
+                                    <a href="<?= site_url('mascotas/eliminar/' . $mascota['ID_MASCOTA']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar esta mascota? Esta acción no se puede deshacer.');">Eliminar</a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

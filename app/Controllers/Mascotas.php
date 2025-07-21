@@ -46,9 +46,14 @@ class Mascotas extends BaseController
 
         $mascotasModel = new MascotasModel();
 
-        // Filtramos las mascotas para mostrar solo las del usuario que ha iniciado sesión.
-        $userId = session()->get('user_id');
-        $data['mascotas'] = $mascotasModel->where('ID_DUENO', $userId)->orderBy('ID_MASCOTA', 'DESC')->findAll();
+        // Si es admin (rol=1), mostramos todas las mascotas.
+        if (session()->get('user_rol') == 1) {
+            $data['mascotas'] = $mascotasModel->orderBy('ID_MASCOTA', 'DESC')->findAll();
+        } else {
+            // Si no es admin, filtramos para mostrar solo las del usuario que ha iniciado sesión.
+            $userId = session()->get('user_id');
+            $data['mascotas'] = $mascotasModel->where('ID_DUENO', $userId)->orderBy('ID_MASCOTA', 'DESC')->findAll();
+        }
 
         return view('mascotas/misMascotas', $data);
     }
@@ -131,5 +136,22 @@ class Mascotas extends BaseController
         $data['qrCodeImagen'] = $qrcode->render($qrUrl); // Ahora esto devuelve el Data URI completo
 
         return view('mascotas/ver_mascota', $data);
+    }
+
+    public function eliminar($id = null)
+    {
+        // Proteger la ruta: solo los administradores pueden eliminar.
+        if (session()->get('user_rol') != 1) {
+            return redirect()->to('/')->with('mensaje', 'Acceso no autorizado.');
+        }
+
+        if ($id === null) {
+            return redirect()->to('mascotas/misMascotas')->with('mensaje', 'Error: ID de mascota no proporcionado.');
+        }
+
+        $mascotasModel = new MascotasModel();
+        $mascotasModel->delete($id);
+
+        return redirect()->to('mascotas/misMascotas')->with('mensaje', 'Mascota eliminada correctamente.');
     }
 }
