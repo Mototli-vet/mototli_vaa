@@ -35,11 +35,11 @@
                     <div class="col-md-6 col-lg-4 mb-4">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h5 class="card-title"><?= esc($mascota['NOMBRE']) ?></h5>
+                                <h5 class="card-title"><?= esc($mascota['NOMBRE_MASCOTA']) ?></h5>
                                 <h6 class="card-subtitle mb-2 text-muted"><?= esc($mascota['RAZA']) ?></h6>
                                 <p class="card-text">
-                                    <strong>Propietario:</strong> <?= esc($mascota['NOMBRE_PROPIETARIO']) ?><br>
-                                    <strong>Contacto:</strong> <?= esc($mascota['CONTACTO_PROPIETARIO']) ?>
+                                    <strong>Propietario:</strong> <?= esc($mascota['NOMBRE']) ?><br>
+                                    <strong>Contacto:</strong> <?= esc($mascota['contacto_propietario']) ?>
                                 </p>
                                 <a href="<?= site_url('mascotas/ver/' . $mascota['QR_CODE_PATH']) ?>" class="btn btn-info btn-sm">Ver QR e Info</a>
                             </div>
