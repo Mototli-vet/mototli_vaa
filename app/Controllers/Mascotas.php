@@ -85,7 +85,7 @@ class Mascotas extends BaseController
             'DESCRIPCION' => $request->getPost('descripcion'),
             'NOMBRE' => $request->getPost('nombre_propietario'),
             'contacto_propietario' => $request->getPost('contacto_propietario'),
-            'ID_USUARIO' => session()->get('user_id'), // Añadimos el ID del usuario logueado
+            'ID_DUENO' => session()->get('user_id'), // Añadimos el ID del usuario logueado
         ];
 
         // Generar un identificador único para el QR.
