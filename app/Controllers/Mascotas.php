@@ -55,11 +55,13 @@ class Mascotas extends BaseController
         // Ensure keys match the $allowedFields in MascotasModel (e.g., uppercase)
         // Assuming model's allowedFields will be: NOMBRE, RAZA, FECHA_NACIMIENTO, NOMBRE_PROPIETARIO, CONTACTO_PROPIETARIO, QR_DATA
         $datosMascota = [
-            'NOMBRE' => $request->getPost('nombre'),
+            'NOMBRE_MASCOTA' => $request->getPost('nombre'),
             'RAZA' => $request->getPost('raza'),
             'FECHA_NACIMIENTO' => $request->getPost('fecha_nacimiento'),
-            'NOMBRE_PROPIETARIO' => $request->getPost('nombre_propietario'),
-            'CONTACTO_PROPIETARIO' => $request->getPost('contacto_propietario'),
+            'COLOR' => $request->getPost('color'),
+            'DESCRIPCION' => $request->getPost('descripcion'),
+            'NOMBRE' => $request->getPost('nombre_propietario'),
+            'contacto_propietario' => $request->getPost('contacto_propietario'),
         ];
 
         // Generar un identificador único para el QR.

@@ -15,12 +15,14 @@ class MascotasModel extends Model
     protected $allowedFields    = [
         // Asumiendo que la columna para el nombre de la mascota es 'NOMBRE'
         // y coincide con $request->getPost('nombre')
-        'NOMBRE',
+        'NOMBRE_MASCOTA',
         'RAZA',
         'FECHA_NACIMIENTO',
-        'NOMBRE_PROPIETARIO',
-        'CONTACTO_PROPIETARIO',
-        'QR_DATA', // Asegúrate de que esta columna exista en tu tabla VE_MASCOTAS
+        'COLOR',
+        'DESCRIPCION',
+        'QR_CODE_PATH', // Asegúrate de que esta columna exista en tu tabla VE_MASCOTAS
+        'NOMBRE',
+        'contacto_propietario',
         // 'COLOR', // Descomenta si tienes estos campos y los manejas en el formulario/controlador
         // 'DESCRIPCION',
         // 'ID_DUENO',

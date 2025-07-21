@@ -112,6 +112,9 @@
             <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
             <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" value="<?= old('fecha_nacimiento') ?>">
 
+            <label for="nombre_propietario">Color:</label>
+            <input type="text" name="color" id="color" value="<?= old('color') ?>">
+
             <label for="nombre_propietario">Nombre del Propietario:</label>
             <input type="text" name="nombre_propietario" id="nombre_propietario" value="<?= old('nombre_propietario') ?>">
 
