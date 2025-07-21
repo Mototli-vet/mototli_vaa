@@ -69,7 +69,7 @@ class Mascotas extends BaseController
         // Ejemplo: $datosPerro['qr_data'] = 'perro_id_' . $perroModel->getInsertID();
         // Por ahora, usaremos uniqid() antes de la inserción.
         $uniqueQrData = uniqid('qr_', true);
-        $datosMascota['QR_DATA'] = $uniqueQrData; // Match expected model field
+        $datosMascota['QR_CODE_PATH'] = $uniqueQrData; // Match expected model field
 
         if ($mascotasModel->save($datosMascota)) {
             // Opcional: si quieres usar el ID del perro en el qr_data
@@ -88,7 +88,7 @@ class Mascotas extends BaseController
     public function ver($qr_data)
     {
         $mascotasModel = new MascotasModel();
-        $mascota = $mascotasModel->where('QR_DATA', $qr_data)->first(); // Match expected model field
+        $mascota = $mascotasModel->where('QR_CODE_PATH', $qr_data)->first(); // Match expected model field
 
         if (!$mascota) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('No se encontró la mascota con el QR especificado.');

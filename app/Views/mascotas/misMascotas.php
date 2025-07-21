@@ -41,7 +41,7 @@
                                     <strong>Propietario:</strong> <?= esc($mascota['NOMBRE_PROPIETARIO']) ?><br>
                                     <strong>Contacto:</strong> <?= esc($mascota['CONTACTO_PROPIETARIO']) ?>
                                 </p>
-                                <a href="<?= site_url('mascotas/ver/' . $mascota['QR_DATA']) ?>" class="btn btn-info btn-sm">Ver QR e Info</a>
+                                <a href="<?= site_url('mascotas/ver/' . $mascota['QR_CODE_PATH']) ?>" class="btn btn-info btn-sm">Ver QR e Info</a>
                             </div>
                         </div>
                     </div>
