@@ -39,7 +39,7 @@ class Login extends BaseController
             ];
             $session->set($ses_data);
             // Usamos el nombre en el mensaje de bienvenida
-            return redirect()->to('/')->with('mensaje', 'Bienvenido de nuevo, ' . $user['NOMBRE']);
+            return redirect()->to('/')->with('mensaje', 'Bienvenido de nuevo, ' . $user['Nombre']);
         }
 
         // Si el usuario no existe o la contraseña es incorrecta
