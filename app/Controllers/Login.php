@@ -8,9 +8,13 @@ class Login extends BaseController
 {
     public function index()
     {
-        // Si el usuario ya está logueado, redirigir a la página principal
+        // Si el usuario ya está logueado, redirigir a la página que le corresponde
         if (session()->get('isLoggedIn')) {
-            return redirect()->to('/dashboard');
+            if (session()->get('user_rol') == 1) {
+                return redirect()->to('/dashboard');
+            }
+            // Los usuarios no administradores van a la página principal
+            return redirect()->to('/');
         }
         helper(['form']);
         return view('login/login_view');
@@ -32,13 +36,19 @@ class Login extends BaseController
         if ($user && $password === $user['PASSWORD']) {
             // Contraseña correcta, iniciar sesión
             $ses_data = [
-                'user_id'         => $user['ID_USUARIO'],
-                'user_name'       => $user['USUARIO'], // Este es el email
-                'user_full_name'  => $user['Nombre'], // Nombre completo del usuario
-                'isLoggedIn'      => true,
+                'user_id'        => $user['ID_USUARIO'],
+                'user_name'      => $user['USUARIO'], // Este es el email
+                'user_full_name' => $user['Nombre'], // Nombre completo del usuario
+                'user_rol'       => $user['ROL'],
+                'isLoggedIn'     => true,
             ];
             $session->set($ses_data);
-            // Usamos el nombre en el mensaje de bienvenida
+
+            // Redirección basada en el rol
+            if ($user['ROL'] == 1) { // Asumiendo que 1 es el rol de administrador
+                return redirect()->to('/dashboard')->with('mensaje', 'Bienvenido al panel de administrador, ' . $user['Nombre']);
+            }
+
             return redirect()->to('/')->with('mensaje', 'Bienvenido de nuevo, ' . $user['Nombre']);
         }
 

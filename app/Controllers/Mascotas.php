@@ -21,6 +21,21 @@ class Mascotas extends BaseController
         return view('infoMascotas/infoMascotas');
     }
 
+    public function dashboard()
+    {
+        // Proteger la ruta: solo administradores (ROL=1) pueden acceder
+        if (!session()->get('isLoggedIn') || session()->get('user_rol') != 1) {
+            // Si no es admin, redirigir a la página principal
+            return redirect()->to('/')->with('mensaje', 'Acceso no autorizado.');
+        }
+
+        // Aquí se podría cargar datos específicos para el dashboard,
+        // como número de usuarios, número de mascotas, etc.
+        // $data['total_usuarios'] = ...
+
+        return view('mascotas/dashboard');
+    }
+
     public function misMascotas()
     {
         // Es una buena práctica verificar si el usuario ha iniciado sesión

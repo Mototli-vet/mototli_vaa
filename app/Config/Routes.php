@@ -7,6 +7,9 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Mascotas::index');
 
+// Ruta para el panel de administrador
+$routes->get('dashboard', 'Mascotas::dashboard');
+
 // Rutas para Perros
 $routes->group('mascotas', function ($routes) {
     $routes->get('/', 'Mascotas::index'); // Listar perros
