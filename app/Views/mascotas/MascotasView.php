@@ -115,6 +115,9 @@
             <label for="nombre_propietario">Color:</label>
             <input type="text" name="color" id="color" value="<?= old('color') ?>">
 
+            <label for="nombre_propietario">Descripcion de la mascota:</label>
+            <input type="text" name="descripcion" id="descripcion" value="<?= old('descripcion') ?>">
+
             <label for="nombre_propietario">Nombre del Propietario:</label>
             <input type="text" name="nombre_propietario" id="nombre_propietario" value="<?= old('nombre_propietario') ?>">
 
