@@ -48,7 +48,7 @@ class Mascotas extends BaseController
 
         // Filtramos las mascotas para mostrar solo las del usuario que ha iniciado sesión.
         $userId = session()->get('user_id');
-        $data['mascotas'] = $mascotasModel->where('ID_USUARIO', $userId)->orderBy('ID_MASCOTA', 'DESC')->findAll();
+        $data['mascotas'] = $mascotasModel->where('ID_DUENO', $userId)->orderBy('ID_MASCOTA', 'DESC')->findAll();
 
         return view('mascotas/misMascotas', $data);
     }
