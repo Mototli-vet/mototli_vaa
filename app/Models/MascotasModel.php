@@ -24,6 +24,8 @@ class MascotasModel extends Model
         'NOMBRE',
         'contacto_propietario',
         'ID_DUENO', // Campo para relacionar la mascota con el usuario
+        'ULTIMA_LATITUD', // Para la última ubicación conocida
+        'ULTIMA_LONGITUD', // Para la última ubicación conocida
     ];
 
     // Dates

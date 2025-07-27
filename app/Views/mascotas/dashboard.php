@@ -75,7 +75,7 @@
                         <i class="fas fa-users card-icon mb-3"></i>
                         <h5 class="card-title">Gestionar Usuarios</h5>
                         <p class="card-text">Administrar los usuarios, roles y permisos de la aplicación.</p>
-                        <a href="#" class="btn btn-primary disabled">Próximamente</a>
+                        <a href="<?= site_url('usuarios/gestionar') ?>" class="btn btn-primary">Ir a Usuarios</a>
                     </div>
                 </div>
             </div>

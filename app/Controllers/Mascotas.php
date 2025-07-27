@@ -154,4 +154,39 @@ class Mascotas extends BaseController
 
         return redirect()->to('mascotas/misMascotas')->with('mensaje', 'Mascota eliminada correctamente.');
     }
+
+    public function guardarUbicacion()
+    {
+        // Se espera una solicitud AJAX (POST)
+        if (!$this->request->isAJAX()) {
+            return $this->response->setStatusCode(403); // Forbidden
+        }
+
+        $qr_data = $this->request->getPost('qr_data');
+        $lat = $this->request->getPost('lat');
+        $lon = $this->request->getPost('lon');
+
+        // Validación básica
+        if (empty($qr_data) || !is_numeric($lat) || !is_numeric($lon)) {
+            return $this->response->setStatusCode(400)->setJSON(['status' => 'error', 'message' => 'Datos incompletos o inválidos.']);
+        }
+
+        $mascotasModel = new MascotasModel();
+        $mascota = $mascotasModel->where('QR_CODE_PATH', $qr_data)->first();
+
+        if (!$mascota) {
+            return $this->response->setStatusCode(404)->setJSON(['status' => 'error', 'message' => 'Mascota no encontrada.']);
+        }
+
+        $updateData = [
+            'ULTIMA_LATITUD' => $lat,
+            'ULTIMA_LONGITUD' => $lon,
+        ];
+
+        if ($mascotasModel->update($mascota['ID_MASCOTA'], $updateData)) {
+            return $this->response->setJSON(['status' => 'success', 'message' => 'Ubicación guardada.']);
+        }
+
+        return $this->response->setStatusCode(500)->setJSON(['status' => 'error', 'message' => 'No se pudo guardar la ubicación.']);
+    }
 }

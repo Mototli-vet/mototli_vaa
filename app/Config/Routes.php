@@ -19,6 +19,17 @@ $routes->group('mascotas', function ($routes) {
     $routes->post('guardar', 'Mascotas::guardar'); // Procesar el formulario de guardado
     $routes->get('eliminar/(:num)', 'Mascotas::eliminar/$1'); // Ruta para eliminar mascota
     $routes->get('ver/(:segment)', 'Mascotas::ver/$1'); // Ver perro y QR por qr_data
+    $routes->post('guardar-ubicacion', 'Mascotas::guardarUbicacion'); // Para guardar la ubicación vía AJAX
+});
+
+// Rutas para gestion de usuarios (solo admin)
+$routes->group('usuarios', function ($routes) {
+    $routes->get('gestionar', 'Usuarios::gestionar');
+    $routes->get('nuevo', 'Usuarios::nuevo');
+    $routes->post('guardar', 'Usuarios::guardar');
+    $routes->get('editar/(:num)', 'Usuarios::editar/$1');
+    $routes->post('actualizar/(:num)', 'Usuarios::actualizar/$1');
+    $routes->get('eliminar/(:num)', 'Usuarios::eliminar/$1');
 });
 
 // Rutas para Autenticación
