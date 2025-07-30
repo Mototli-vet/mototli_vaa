@@ -126,7 +126,7 @@ class Mascotas extends BaseController
         $data['mascota'] = $mascota;
 
         // Generar el código QR
-        $qrUrl = base_url('mascotas/ver/' . $qr_data); // URL que contendrá el QR
+        $qrUrl = base_url('mascotas/ver/' . $qr_data . '?source=qr'); // URL que contendrá el QR. ¡Añadimos el parámetro!
         $qrOptions = new QROptions([
             'outputType'  => QRCode::OUTPUT_IMAGE_PNG, // Especifica que queremos una imagen PNG
             'imageBase64' => true, // Pide a la librería que devuelva un Data URI (base64)
