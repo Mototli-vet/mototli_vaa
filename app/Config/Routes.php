@@ -22,13 +22,17 @@ $routes->group('mascotas', function ($routes) {
     $routes->post('guardar-ubicacion', 'Mascotas::guardarUbicacion'); // Para guardar la ubicación vía AJAX
 });
 
-// Rutas para gestion de usuarios (solo admin)
-$routes->group('usuarios', function ($routes) {
+/**
+ * Rutas para la gestión de usuarios (solo para administradores).
+ * El filtro 'auth' asegura que solo usuarios logueados puedan intentar acceder.
+ * La autorización final (si es admin o no) se hace en el controlador Usuarios.
+ */
+$routes->group('usuarios', ['filter' => 'auth'], static function ($routes) {
     $routes->get('gestionar', 'Usuarios::gestionar');
     $routes->get('nuevo', 'Usuarios::nuevo');
     $routes->post('guardar', 'Usuarios::guardar');
     $routes->get('editar/(:num)', 'Usuarios::editar/$1');
-    $routes->post('actualizar/(:num)', 'Usuarios::actualizar/$1');
+    $routes->post('actualizar', 'Usuarios::actualizar');
     $routes->get('eliminar/(:num)', 'Usuarios::eliminar/$1');
 });
 
