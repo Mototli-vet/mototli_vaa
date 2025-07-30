@@ -98,55 +98,61 @@
             }
 
             // 2. Intentar obtener y guardar la ubicación actual del escaneo
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    const currentLat = position.coords.latitude;
-                    const currentLon = position.coords.longitude;
-                    const qrData = '<?= esc($mascota['QR_CODE_PATH'], 'js') ?>';
+            // Verificamos si la URL contiene un parámetro que indique que se accedió desde un QR
+            const urlParams = new URLSearchParams(window.location.search);
+            const fromQr = urlParams.has('source') && urlParams.get('source') === 'qr';
 
-                    // Si no había mapa antes, lo creamos ahora con la ubicación actual
-                    if (!map) {
-                        const noLocationMsg = document.getElementById('no-location-msg');
-                        if (noLocationMsg) noLocationMsg.style.display = 'none'; // Ocultar mensaje de "sin ubicación"
+            if (fromQr) {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        const currentLat = position.coords.latitude;
+                        const currentLon = position.coords.longitude;
+                        const qrData = '<?= esc($mascota['QR_CODE_PATH'], 'js') ?>';
 
-                        mapDiv.style.display = 'block'; // Mostrar el div del mapa
-                        map = L.map('map').setView([currentLat, currentLon], 15);
-                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        }).addTo(map);
+                        // Si no había mapa antes (porque no había última ubicación), lo creamos ahora con la ubicación actual
+                        if (!map) {
+                            const noLocationMsg = document.getElementById('no-location-msg');
+                            if (noLocationMsg) noLocationMsg.style.display = 'none'; // Ocultar mensaje de "sin ubicación"
 
-                        L.marker([currentLat, currentLon]).addTo(map)
-                            .bindPopup('¡Ubicación actual! Gracias por escanear.')
-                            .openPopup();
-                    }
+                            mapDiv.style.display = 'block'; // Mostrar el div del mapa
+                            map = L.map('map').setView([currentLat, currentLon], 15);
+                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            }).addTo(map);
 
-                    // Enviar la ubicación al servidor en segundo plano (AJAX)
-                    const formData = new FormData();
-                    formData.append('qr_data', qrData);
-                    formData.append('lat', currentLat);
-                    formData.append('lon', currentLon);
-                    // Necesitamos el token CSRF para la solicitud POST
-                    formData.append('<?= csrf_token() ?>', '<?= csrf_hash() ?>');
+                            L.marker([currentLat, currentLon]).addTo(map)
+                                .bindPopup('¡Ubicación actual! Gracias por escanear.')
+                                .openPopup();
+                        }
 
-                    fetch('<?= site_url('mascotas/guardar-ubicacion') ?>', {
-                            method: 'POST',
-                            body: formData
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log('Respuesta del servidor:', data);
-                        })
-                        .catch(error => {
-                            console.error('Error al guardar la ubicación:', error);
-                        });
+                        // Enviar la ubicación al servidor en segundo plano (AJAX)
+                        const formData = new FormData();
+                        formData.append('qr_data', qrData);
+                        formData.append('lat', currentLat);
+                        formData.append('lon', currentLon);
+                        // Necesitamos el token CSRF para la solicitud POST
+                        formData.append('<?= csrf_token() ?>', '<?= csrf_hash() ?>');
 
-                }, function(error) {
-                    console.warn(`ERROR(${error.code}): ${error.message}`);
-                    // Opcional: Mostrar un mensaje al usuario si no da permiso
-                    // Por ejemplo: alert('No se pudo obtener la ubicación. La última ubicación conocida no se actualizará.');
-                });
-            } else {
-                console.log("La geolocalización no es soportada por este navegador.");
+                        fetch('<?= site_url('mascotas/guardar-ubicacion') ?>', {
+                                method: 'POST',
+                                body: formData
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Respuesta del servidor:', data);
+                            })
+                            .catch(error => {
+                                console.error('Error al guardar la ubicación:', error);
+                            });
+
+                    }, function(error) {
+                        console.warn(`ERROR(${error.code}): ${error.message}`);
+                        // Opcional: Mostrar un mensaje al usuario si no da permiso
+                        // Por ejemplo: alert('No se pudo obtener la ubicación. La última ubicación conocida no se actualizará.');
+                    });
+                } else {
+                    console.log("La geolocalización no es soportada por este navegador.");
+                }
             }
         });
     </script>
