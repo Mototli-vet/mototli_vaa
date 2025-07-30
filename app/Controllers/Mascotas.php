@@ -158,8 +158,8 @@ class Mascotas extends BaseController
     public function guardarUbicacion()
     {
         // Se espera una solicitud AJAX (POST)
-        if (!$this->request->isAJAX()) {
-            return $this->response->setStatusCode(403); // Forbidden
+        if ($this->request->getMethod() !== 'post') {
+            return $this->response->setStatusCode(405); // Method Not Allowed
         }
 
         $qr_data = $this->request->getPost('qr_data');
