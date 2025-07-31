@@ -60,8 +60,8 @@ class Usuarios extends BaseController
         // Reglas de validación
         $rules = [
             'nombre'   => 'required|min_length[3]|max_length[100]',
-            'email'    => 'required|min_length[6]|max_length[100]|valid_email|is_unique[usuarios.USUARIO]',
-            'password' => 'required|min_length[8]|max_length[255]',
+            'email'    => "required|min_length[6]|max_length[100]|valid_email|is_unique[{$usuarioModel->table}.USUARIO]",
+            'password' => 'required|min_length[8]',
             'rol'      => 'required|in_list[1,2]' // Asumiendo 1=Admin, 2=Usuario
         ];
 
@@ -116,13 +116,13 @@ class Usuarios extends BaseController
         $rules = [
             'nombre'   => 'required|min_length[3]|max_length[100]',
             // La regla is_unique necesita ignorar el ID del usuario actual
-            'email'    => "required|min_length[6]|max_length[100]|valid_email|is_unique[usuarios.USUARIO,ID_USUARIO,{$id}]",
+            'email'    => "required|min_length[6]|max_length[100]|valid_email|is_unique[{$usuarioModel->table}.USUARIO,ID_USUARIO,{$id}]",
             'rol'      => 'required|in_list[1,2]'
         ];
 
         // La contraseña solo es requerida si se proporciona una nueva
         if ($request->getPost('password')) {
-            $rules['password'] = 'required|min_length[8]|max_length[255]';
+            $rules['password'] = 'required|min_length[8]';
         }
 
         if (!$this->validate($rules)) {
