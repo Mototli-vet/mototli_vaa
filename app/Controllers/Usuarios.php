@@ -72,7 +72,7 @@ class Usuarios extends BaseController
         $data = [
             'Nombre'   => $request->getPost('nombre'),
             'USUARIO'  => $request->getPost('email'),
-            'PASSWORD' => $request->getPost('password'), // Hasheamos la contraseña
+            'PASSWORD' => $request->getPost('password'), // Guardamos la contraseña en texto plano
             'ROL'      => $request->getPost('rol'),
         ];
 
@@ -138,7 +138,7 @@ class Usuarios extends BaseController
 
         // Actualizar la contraseña solo si se ha introducido una nueva
         if ($request->getPost('password')) {
-            $data['PASSWORD'] = password_hash($request->getPost('password'), PASSWORD_DEFAULT);
+            $data['PASSWORD'] = $request->getPost('password');
         }
 
         $usuarioModel->save($data);
