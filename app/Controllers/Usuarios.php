@@ -103,7 +103,6 @@ class Usuarios extends BaseController
      * Procesa el formulario de edición y actualiza el usuario.
      */
     public function actualizar()
-    public function actualizar()
     {
         if ($redirect = $this->checkAdmin()) {
             return $redirect;
@@ -166,4 +165,3 @@ class Usuarios extends BaseController
         return redirect()->to('/usuarios/gestionar')->with('mensaje', 'Usuario eliminado con éxito.');
     }
 }
-
