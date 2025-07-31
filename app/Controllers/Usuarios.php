@@ -72,7 +72,7 @@ class Usuarios extends BaseController
         $data = [
             'Nombre'   => $request->getPost('nombre'),
             'USUARIO'  => $request->getPost('email'),
-            'PASSWORD' => password_hash($request->getPost('password'), PASSWORD_DEFAULT), // Hasheamos la contraseña
+            'PASSWORD' => $request->getPost('password'), // Hasheamos la contraseña
             'ROL'      => $request->getPost('rol'),
         ];
 
